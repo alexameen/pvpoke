@@ -1,69 +1,68 @@
 // JavaScript Document
 
-var InterfaceMaster = (function () {
-    var instance;
+var InterfaceMaster = (function() {
+  var instance;
 
-    function createInstance() {
+  function createInstance() {
+    var object = new interfaceObject();
 
+    function interfaceObject() {
+      this.init = function() {
+        $("body").on("click", ".check", checkBox);
+        $(".save.button").click(saveSettings);
+      };
 
-        var object = new interfaceObject();
+      // Given a name, save current list to a cookie
 
-		function interfaceObject(){
+      function saveSettings(e) {
+        var defaultIVs = $("#default-ivs option:selected").val();
+        var animateTimeline = $(".check.animate-timeline").hasClass("on")
+          ? 1
+          : 0;
+        var theme = $("#theme-select option:selected").val();
+        var matrixDirection = $("#matrix-direction option:selected").val();
 
-			this.init = function(){
-				$("body").on("click", ".check", checkBox);
-				$(".save.button").click(saveSettings);
-			};
-			
-			// Given a name, save current list to a cookie
+        $.ajax({
+          url: host + "data/settingsCookie.php",
+          type: "POST",
+          data: {
+            defaultIVs: defaultIVs,
+            animateTimeline: animateTimeline,
+            theme: theme,
+            matrixDirection: matrixDirection
+          },
+          dataType: "json",
+          success: function(data) {
+            modalWindow(
+              "Settings Saved",
+              $(
+                "<p>Your settings have been updated. (Refresh the page if you've updated the site appearance.)</p>"
+              )
+            );
+          },
+          error: function(request, error) {
+            console.log("Request: " + JSON.stringify(request));
+            console.log(error);
+          }
+        });
+      }
 
-			function saveSettings(e){
-				
-				var defaultIVs = $("#default-ivs option:selected").val();
-				var animateTimeline = $(".check.animate-timeline").hasClass("on") ? 1 : 0;
-				var theme = $("#theme-select option:selected").val();
-				var matrixDirection = $("#matrix-direction option:selected").val();
-				
-				$.ajax({
+      // Turn checkboxes on and off
 
-					url : host+'data/settingsCookie.php',
-					type : 'POST',
-					data : {
-						'defaultIVs' : defaultIVs,
-						'animateTimeline' : animateTimeline,
-						'theme': theme,
-						'matrixDirection': matrixDirection
-					},
-					dataType:'json',
-					success : function(data) {              
-						modalWindow("Settings Saved", $("<p>Your settings have been updated. (Refresh the page if you've updated the site appearance.)</p>"))
-
-					},
-					error : function(request,error)
-					{
-						console.log("Request: "+JSON.stringify(request));
-						console.log(error);
-					}
-				});
-			}
-
-			// Turn checkboxes on and off
-
-			function checkBox(e){
-				$(this).toggleClass("on");
-			}
-
-		};
-
-        return object;
+      function checkBox(e) {
+        $(this).toggleClass("on");
+      }
     }
 
-    return {
-        getInstance: function () {
-            if (!instance) {
-                instance = createInstance();
-            }
-            return instance;
-        }
-    };
+    return object;
+  }
+
+  return {
+    getInstance: function() {
+      if (!instance) {
+        instance = createInstance();
+      }
+      return instance;
+    }
+  };
 })();
