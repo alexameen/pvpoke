@@ -1180,6 +1180,12 @@ select, input {
     padding-right: 10px; }
   .rank .name {
     font-weight: bold; }
+  .rank .name .type-1 {
+      font-weight: normal;
+      font-size: 12 px; }
+  .rank .name .type-2 {
+      font-weight: normal;
+      font-size: 12 px; }
   .rank .rating-container .rating {
     float: right;
     color: #fff6d4;

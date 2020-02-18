@@ -167,6 +167,10 @@ var InterfaceMaster = (function() {
 
           // Is this the best way to add HTML content? I'm gonna go with no here. But does it work? Yes!
 
+          var titleCase = function(str) {
+            return str.charAt(0).toUpperCase() + str.substring(1);
+          };
+
           var $el = $(
             '<div class="rank ' +
               pokemon.types[0] +
@@ -180,6 +184,18 @@ var InterfaceMaster = (function() {
               (i + 1) +
               '</span><span class="name">' +
               pokemon.speciesName +
+              // ADDED: Type Names
+              '    <span class="type-1" style="font-weight: normal; font-size: 12px;">(' +
+              titleCase(pokemon.types[0]) +
+              (function() {
+                if (pokemon.types[1] != "none") {
+                  return '\/</span><span class="type-2" style="font-weight: normal; font-size: 12px;">) '
+                    + titleCase(pokemon.types[1]);
+                } else {
+                  return ') ';
+                }
+              })() +
+              // END ADDITIONS
               '</span><div class="moves">' +
               moveNameStr +
               '</div></div><div class="rating-container"><div class="rating">' +
