@@ -135,6 +135,29 @@ var InterfaceMaster = (function() {
 
         // Create an element for each ranked Pokemon
 
+        var titleCase = function(str) {
+          return str.charAt(0).toUpperCase() + str.substring(1);
+        };
+
+        var isFastMove = function(move) {
+          return move.energy == 0 && move.energyGain != 0;
+        };
+
+        var isChargeMove = function(move) { return ! isFastMove(move); };
+
+        var makeMoveDetails = function(move) {
+          var p = move.power;
+          var e = 0;
+          if (isFastMove(move)) e = move.energyGain;
+          else e = - move.energy;
+          var cd = move.cooldown / 1000.0; // In seconds
+
+          var dps = p / cd;
+          var eps = e / cd;
+
+        };
+
+
         for (var i = 0; i < rankings.length; i++) {
           var r = rankings[i];
 
@@ -166,10 +189,6 @@ var InterfaceMaster = (function() {
           }
 
           // Is this the best way to add HTML content? I'm gonna go with no here. But does it work? Yes!
-
-          var titleCase = function(str) {
-            return str.charAt(0).toUpperCase() + str.substring(1);
-          };
 
           var $el = $(
             '<div class="rank ' +
