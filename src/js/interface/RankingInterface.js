@@ -571,7 +571,17 @@ var InterfaceMaster = (function() {
                 '</span><span class="name">' +
                 fastMoves[n].name +
                 (fastMoves[n].legacy === false ? "" : " *") +
-                '</span></div><div class="rating-container"><div class="rating" style="width:' +
+                // ADDED
+                '</span>' +
+                '<br><div class="moveDetails" style="font-size: 12px;">' +
+                '<span class="power"> Power: ' + fastMoves[n].power +
+                '</span><br><span class="energy"> Energy: ' + fastMoves[n].energyGain +
+                '</span><br><span class="cooldown"> CD: ' + (fastMoves[n].cooldown / 1000.0) +
+                '</span><br><span class="dps"> DPS: ' + (parseFloat(fastMoves[n].power) / (fastMoves[n].cooldown / 1000.0)).toFixed(2) +
+                '</span><br><span class="eps"> EPS: '+ (parseFloat(fastMoves[n].energyGain) / (fastMoves[n].cooldown / 1000.0) ).toFixed(2) +
+                '</span></div>' +
+                '</div><div class="rating-container"><div class="rating" style="width:' +
+                // END ADDED
                 displayWidth +
                 '">' +
                 percentStr +
