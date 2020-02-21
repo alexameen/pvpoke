@@ -1207,6 +1207,9 @@ select, input {
     padding-right: 10px; }
   .rank .name {
     font-weight: bold; }
+  .rank .type {
+    font-weight: normal;
+    font-size: 12px; }
   .rank .rating-container .rating {
     float: right;
     color: #fff6d4;
