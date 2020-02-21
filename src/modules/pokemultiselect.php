@@ -16,6 +16,8 @@
 				<option value="great" type="great" class="multi-battle">Great League Meta</option>
 				<option value="ultra" type="ultra" class="hide multi-battle">Ultra League Meta</option>
 				<option value="master" type="master" class="hide multi-battle">Master League Meta</option>
+				<option value="toxic" type="toxic" class="multi-battle">Toxic Cup Meta</option>
+				<option value="rose" type="rose" class="multi-battle">Rose Cup Meta</option>
 				<option value="fusion" type="fusion" class="multi-battle">Fusion Cup Meta</option>
 				<option value="timeless" type="timeless" class="multi-battle">Timeless Cup Meta</option>
 				<option value="ferocious" type="ferocious" class="multi-battle">Ferocious Cup Meta</option>
@@ -49,7 +51,7 @@
 			</select>
 			<select class="pokemon-level-cap-select">
 				<option value="40">Default Level Cap (40)</option>
-				<option value="45">Buddy Level Cap (45)</option>
+				<option value="41">Buddy Level Cap (41)</option>
 			</select>
 			<div class="check shield-baiting on"><span></span>Bait shields with low-energy moves</div>
 		</div>

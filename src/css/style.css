@@ -367,6 +367,15 @@ header {
       font-size: 14px; }
     .poke .options .pull-from-timeline {
       margin-bottom: 15px; }
+    .poke .options .add-fast-move {
+      border: 1px solid #000;
+      outline: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0px 0px 10px 40px;
+      float: right; }
+      .poke .options .add-fast-move.dark {
+        color: #fff; }
     .poke .options .label {
       margin: 5px 5px 5px 0; }
   .poke a.random,
@@ -455,6 +464,14 @@ header {
             background: #ff0000; }
     .poke.multi .quick-fill-buttons {
       justify-content: space-around; }
+  .poke .energy-label {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px; }
+    .poke .energy-label .num {
+      font-size: 16px;
+      font-weight: bold; }
 
 .hp.bar-back {
   position: relative;
@@ -856,19 +873,27 @@ select, input {
         text-decoration: none; }
         .battle-results .battle-details table .rating.star.win, .battle-results.matrix table .rating.star.win {
           background-image: url("../img/starburst.png"); }
-    .battle-results .battle-details .breakpoints-section, .battle-results.matrix .breakpoints-section {
+    .battle-results .battle-details .breakpoints-section,
+    .battle-results .battle-details .cmp-section, .battle-results.matrix .breakpoints-section,
+    .battle-results.matrix .cmp-section {
       max-width: 340px;
-      margin: 0 auto; }
-      .battle-results .battle-details .breakpoints-section .bold, .battle-results.matrix .breakpoints-section .bold {
+      margin: 0 auto 35px auto; }
+      .battle-results .battle-details .breakpoints-section .bold,
+      .battle-results .battle-details .cmp-section .bold, .battle-results.matrix .breakpoints-section .bold,
+      .battle-results.matrix .cmp-section .bold {
         font-weight: bold; }
-      .battle-results .battle-details .breakpoints-section .ivs .button, .battle-results.matrix .breakpoints-section .ivs .button {
+      .battle-results .battle-details .breakpoints-section .ivs .button,
+      .battle-results .battle-details .cmp-section .ivs .button, .battle-results.matrix .breakpoints-section .ivs .button,
+      .battle-results.matrix .cmp-section .ivs .button {
         font-size: 14px;
         margin: 0;
         padding: 5px;
         border: none;
         background: #333 !important;
         color: #eee; }
-      .battle-results .battle-details .breakpoints-section .golden-combination .button, .battle-results.matrix .breakpoints-section .golden-combination .button {
+      .battle-results .battle-details .breakpoints-section .golden-combination .button,
+      .battle-results .battle-details .cmp-section .golden-combination .button, .battle-results.matrix .breakpoints-section .golden-combination .button,
+      .battle-results.matrix .cmp-section .golden-combination .button {
         display: inline-block;
         font-size: 14px;
         padding: 5px 15px;
@@ -1130,6 +1155,8 @@ select, input {
     background: #df46e5; }
   .tooltip.tap {
     background: #eee; }
+  .tooltip.dark {
+    color: #fff; }
   .tooltip h3 {
     margin: 0;
     font-size: 14px; }
@@ -1180,12 +1207,6 @@ select, input {
     padding-right: 10px; }
   .rank .name {
     font-weight: bold; }
-  .rank .name .type-1 {
-      font-weight: normal;
-      font-size: 12 px; }
-  .rank .name .type-2 {
-      font-weight: normal;
-      font-size: 12 px; }
   .rank .rating-container .rating {
     float: right;
     color: #fff6d4;
@@ -1235,21 +1256,21 @@ select, input {
         width: 49.5%; }
         .rank .details .detail-section.float.margin {
           margin-right: 1%; }
-      .rank .details .detail-section.overall {
+      .rank .details .detail-section.overall, .rank .details .detail-section.stats {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around; }
-        .rank .details .detail-section.overall .rating-container {
+        .rank .details .detail-section.overall .rating-container, .rank .details .detail-section.stats .rating-container {
           text-align: center;
           padding: 5px; }
-          .rank .details .detail-section.overall .rating-container .ranking-header {
+          .rank .details .detail-section.overall .rating-container .ranking-header, .rank .details .detail-section.stats .rating-container .ranking-header {
             float: none;
             margin: 0;
             width: 100%;
             padding: 0 5px;
             font-size: 14px; }
-          .rank .details .detail-section.overall .rating-container .rating {
+          .rank .details .detail-section.overall .rating-container .rating, .rank .details .detail-section.stats .rating-container .rating {
             padding: 5px;
             display: inline-block;
             float: none;
@@ -2246,6 +2267,22 @@ a.toggle {
       display: block; }
     .custom-rankings .filters .filter[type="dex"] .field-section.dex {
       display: block; }
+.custom-rankings .advanced .flex-section {
+  display: flex; }
+  .custom-rankings .advanced .flex-section div {
+    margin-right: 30px; }
+.custom-rankings .advanced .format-select {
+  display: none; }
+.custom-rankings .advanced .cup-select {
+  display: block;
+  font-size: 14px;
+  max-width: 200px; }
+.custom-rankings .advanced select,
+.custom-rankings .advanced input {
+  max-width: 100px; }
+.custom-rankings .advanced h3 {
+  font-size: 14px;
+  margin-bottom: 5px; }
 
 .custom-rankings-list {
   display: none; }

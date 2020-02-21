@@ -33,11 +33,15 @@ require_once '../header.php';
 			</select>
 			<h3 class="section-title">League &amp; Cup</h3>
 			<select class="league-cup-select">
+				<option value="" selected disabled>Select a league</option>
+				<option value="1500 gobattleleague">GO Battle League (Great)</option>
+				<option value="2500 gobattleleague">GO Battle League (Ultra)</option>
+				<option value="10000 gobattleleague">GO Battle League (Master)</option>
 				<option value="1500 all">Great League</option>
 				<option value="2500 all">Ultra League</option>
 				<option value="10000 all">Master League</option>
-				<option value="1500 fusion">Fusion Cup</option>
-				<option value="1500 timeless">Timeless Cup</option>
+				<option value="1500 toxic">Toxic Cup</option>
+				<option value="1500 rose">Rose Cup</option>
 			</select>
 			<h3 class="section-title">Difficulty</h3>
 			<select class="difficulty-select">
@@ -122,10 +126,9 @@ require_once '../header.php';
 <div class="section white updates">
 	<h3>What's New</h3>
 
-	<h4>v1.12.14 (December 5, 2019)</h4>
+	<h4>v1.12.30 (February 6, 2020)</h4>
 	<ul>
-		<li>Added Timeless Cup featured teams to Training Battles, with teams from guan87, JayDevin, JimmaBanks, Kieng, KnightsOoofRen, and MattyFBaby!</li>
-		<li>Added a team preview when selecting featured teams to battle</li>
+		<li>GO Battle League (Ultra League) is now available in Training Battles! Go test your teams of 3 for the next league shift.</li>
 	</ul>
 </div>
 

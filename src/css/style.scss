@@ -566,17 +566,17 @@ header{
 						height:12px;
 					}
 				}
-				
+
 				.level-cap-group{
 					display:flex;
 					margin-top:10px;
-					
+
 					div:first-of-type{
 						font-size: 12px;
 						font-weight: bold;
 						margin-right: 10px;
 					}
-					
+
 					.check{
 						margin-right:10px;
 					}
@@ -634,6 +634,19 @@ header{
 
 		.pull-from-timeline{
 			margin-bottom:15px;
+		}
+
+		.add-fast-move{
+			border: 1px solid #000;
+		    outline: none;
+		    border-radius: 8px;
+		    cursor: pointer;
+		    margin: 0px 0px 10px 40px;
+		    float: right;
+
+			&.dark{
+				color:#fff;
+			}
 		}
 
 		.label{
@@ -775,6 +788,18 @@ header{
 
 		.quick-fill-buttons{
 			justify-content: space-around;
+		}
+	}
+
+	.energy-label{
+		margin-top: 15px;
+	    text-align: center;
+	    font-size: 12px;
+	    line-height: 14px;
+
+		.num{
+			font-size: 16px;
+			font-weight: bold;
 		}
 	}
 
@@ -1294,7 +1319,7 @@ select, input{
 				font-size:14px;
 				font-weight: bold;
 			}
-			
+
 			th span{
 				font-weight: normal;
 				font-size:11px;
@@ -1312,9 +1337,10 @@ select, input{
 			}
 		}
 
-		.breakpoints-section{
+		.breakpoints-section,
+		.cmp-section{
 			max-width:340px;
-			margin: 0 auto;
+			margin: 0 auto 35px auto;
 
 			.bold{
 				font-weight:bold;
@@ -1359,7 +1385,7 @@ select, input{
 				cursor:initial;
 			}
 		}
-		
+
 		.multi-battle-sort{
 			display: block;
 			margin-top: 15px;
@@ -1601,7 +1627,7 @@ select, input{
 									  supported by Chrome and Opera */
 		}
 	}
-	
+
 	.status-effect-description{
 		font-size:12px;
 	}
@@ -1664,6 +1690,10 @@ select, input{
 
 	&.tap{
 		background:#eee;
+	}
+
+	&.dark{
+		color:#fff;
 	}
 
 	h3{
@@ -1816,7 +1846,8 @@ select, input{
 				}
 			}
 
-			&.overall{
+			&.overall,
+			&.stats{
 				width: 100%;
 				display: flex;
 				flex-wrap: wrap;
@@ -2875,7 +2906,7 @@ a.toggle{
 			width:60px;
 		}
 	}
-	
+
 	.modal .poke{
 		width:100%;
 	}
@@ -3065,6 +3096,36 @@ a.toggle{
 			&[type="dex"] .field-section.dex{
 				display:block;
 			}
+		}
+	}
+
+	.advanced{
+		.flex-section{
+			display:flex;
+
+			div{
+				margin-right:30px;
+			}
+		}
+
+		.format-select{
+			display:none;
+		}
+
+		.cup-select{
+			display:block;
+			font-size:14px;
+			max-width:200px;
+		}
+
+		select,
+		input{
+			max-width:100px;
+		}
+
+		h3{
+			font-size:14px;
+			margin-bottom:5px;
 		}
 	}
 }

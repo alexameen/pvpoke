@@ -29,6 +29,41 @@ require_once 'header.php'; ?>
 		<button class="add-filter" list-index="1">+ Add Filter</button>
 	</div>
 
+	<a class="toggle" href="#">Advanced <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+	<div class="toggle-content advanced">
+		<div class="flex-section">
+			<div>
+				<h3 class="section-title">Subject Shields</h3>
+				<select class="subject-shield-select" index="0">
+					<option value="0">No shields</option>
+					<option value="1" selected>1 shield</option>
+					<option value="2">2 shields</option>
+				</select>
+			</div>
+			<div>
+				<h3 class="section-title">Target Shields</h3>
+				<select class="target-shield-select" index="1">
+					<option value="0">No shields</option>
+					<option value="1" selected>1 shield</option>
+					<option value="2">2 shields</option>
+				</select>
+			</div>
+		</div>
+		<div class="flex-section">
+			<div>
+				<h3 class="section-title">Subject Energy<br>Advantage</h3>
+				<input type="number" class="subject-turns" index="0" placeholder="Turns" />
+			</div>
+			<div>
+				<h3 class="section-title">Target Energy<br>Advantage</h3>
+				<input type="number" class="target-turns" index="1" placeholder="Turns" />
+			</div>
+		</div>
+		<h3 class="section-title">Import League or Cup</h3>
+		<?php require_once 'modules/cupselect.php'; ?>
+		<p>Import the rulesets and recommended moves from an existing format.</p>
+	</div>
+
 	<div class="filter clone hide">
 		<a class="toggle" href="#"><span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span> <span class="name">Filter Name</span></a>
 		<div class="toggle-content">
@@ -100,7 +135,8 @@ require_once 'header.php'; ?>
 					<li><strong>Generation 1:</strong> 1-151</li>
 					<li><strong>Generation 2:</strong> 152-251</li>
 					<li><strong>Generation 3:</strong> 252-386</li>
-					<li><strong>Generation 4:</strong> 387-488</li>
+					<li><strong>Generation 4:</strong> 387-493</li>
+					<li><strong>Generation 5:</strong> 494-649</li>
 				</ul>
 				<div class="field-container">
 					<input class="start-range" placeholder="Start #" />
@@ -140,7 +176,7 @@ require_once 'header.php'; ?>
 	<h3>Import/Export Settings</h3>
 
 	<p>Copy the text below to export your custom settings or paste to import settings.</p>
-	
+
 	<textarea class="import"></textarea>
 	<div class="copy">Copy</div>
 </div>
@@ -196,6 +232,50 @@ require_once 'header.php'; ?>
 			<td>"!water"</td>
 		</tr>
 	</table>
+</div>
+
+<div class="details-template hide">
+	<div class="detail-section float margin">
+		<div class="ranking-header">Fast Moves</div>
+		<div class="ranking-header right">Usage</div>
+		<div class="moveset fast clear"></div>
+	</div>
+	<div class="detail-section float">
+		<div class="ranking-header">Charged Moves</div>
+		<div class="ranking-header right">Usage</div>
+		<div class="moveset charged clear"></div>
+	</div>
+	<div class="detail-section float margin">
+		<div class="ranking-header">Key Matchups</div>
+		<div class="ranking-header right">Battle Rating</div>
+		<div class="matchups clear"></div>
+	</div>
+	<div class="detail-section float">
+		<div class="ranking-header">Top Counters</div>
+		<div class="ranking-header right">Battle Rating</div>
+		<div class="counters clear"></div>
+	</div>
+	<div class="clear"></div>
+	<div class="detail-section stats">
+		<div class="rating-container">
+			<div class="ranking-header">Attack</div>
+			<div class="rating"></div>&nbsp;-
+			<div class="rating"></div>
+		</div>
+		<div class="rating-container">
+			<div class="ranking-header">Defense</div>
+			<div class="rating"></div>&nbsp;-
+			<div class="rating"></div>
+		</div>
+		<div class="rating-container">
+			<div class="ranking-header">Stamina</div>
+			<div class="rating"></div>&nbsp;-
+			<div class="rating"></div>
+		</div>
+	</div>
+	<div class="share-link detail-section"><input type="text" readonly="">
+		<div class="copy">Copy</div>
+	</div>
 </div>
 
 <script src="<?php echo $WEB_ROOT; ?>js/GameMaster.js?v=<?php echo $SITE_VERSION; ?>"></script>

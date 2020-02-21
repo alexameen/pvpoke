@@ -85,9 +85,17 @@ switch($cup){
 	case "timeless":
 		$league = 'Timeless Cup';
 		break;
-		
+
 	case "fusion":
 		$league = 'Fusion Cup';
+		break;
+
+	case "rose":
+		$league = 'Rose Cup';
+		break;
+
+	case "toxic":
+		$league = 'Toxic Cup';
 		break;
 }
 
@@ -105,24 +113,30 @@ require_once 'header.php';
 	<?php require 'modules/cupselect.php'; ?>
 
 	<div class="ranking-categories">
-		<a class="selected" href="#" data="overall">Overall</a>
-		<a href="#" data="leads">Leads</a>
-		<a href="#" data="closers">Closers</a>
-		<a href="#" data="attackers">Attackers</a>
-		<a href="#" data="defenders">Defenders</a>
+		<a class="selected" href="#" data="overall" scenario="leads">Overall</a>
+		<a href="#" data="leads" scenario="leads">Leads</a>
+		<a href="#" data="closers" scenario="closers">Closers</a>
+		<a href="#" data="switches" scenario="switches">Switches</a>
+		<a href="#" data="chargers" scenario="chargers">Chargers</a>
+		<a href="#" data="attackers" scenario="attackers">Attackers</a>
+		<a href="#" data="consistency" scenario="leads">Consistency</a>
 	</div>
 
 	<div class="clear"></div>
 
-	<p class="description overall"><b>The best Pokemon against top opponents in multiple roles.</b> They have the typing, moves, and stats to succeed against the top Pokemon in multiple scenarios.</p>
+	<p class="description overall"><b>The best Pokemon overall across multiple roles.</b> They have the typing, moves, and stats to succeed as top contendors.</p>
 
-	<p class="description closers hide"><b>The best Pokemon with no shields in play.</b> Good typing, stats, and efficient moves give them the advantage.</p>
+	<p class="description closers hide"><b>The best Pokemon with no shields in play.</b> Bulk or hard-hitting moves allow them to close out matchups.</p>
 
-	<p class="description leads hide"><b>The best Pokemon with shields in play.</b> Capable of pressuring the opponent with good coverage or resistances, they're ideal leads in battle.</p>
+	<p class="description leads hide"><b>The best Pokemon with shields in play.</b> Capable of applying pressure or winning extended fights, they're ideal leads in battle.</p>
 
-	<p class="description attackers hide"><b>The best Pokemon against shielded opponents, while unshielded.</b> Their natural bulk, resistances, and strong attacks allow them to succeed against sturdy defenses.</p>
+	<p class="description attackers hide"><b>The best Pokemon against shielded opponents, while unshielded.</b> Their natural bulk, resistances, and strong attacks allow them to power through a disadvantage.</p>
 
-	<p class="description defenders hide"><b>The best Pokemon while shielded, against unshielded opponents.</b> Able to absorb incredible damage, they can emerge victorious against top opponents.</p>
+	<p class="description switches hide"><b>The best Pokemon to switch to from an unfavorable lead.</b> These Pokemon have safe matchups and can pressure shields or deal heavy damage even in their losses.</p>
+
+	<p class="description chargers hide"><b>The best Pokemon with an energy advantage.</b> Fast energy gain or powerful moves make them dangerous after building up energy.</p>
+
+	<p class="description consistency hide"><b>These Pokemon perform the most dependably.</b> They provide consistent damage and rely less on baiting shields than other Pokemon.</p>
 
 	<p>Click or tap the rankings below for more details.</p>
 
@@ -230,6 +244,50 @@ require_once 'header.php';
 			<td>"!water"</td>
 		</tr>
 	</table>
+</div>
+
+<div class="details-template hide">
+	<div class="detail-section float margin">
+		<div class="ranking-header">Fast Moves</div>
+		<div class="ranking-header right">Usage</div>
+		<div class="moveset fast clear"></div>
+	</div>
+	<div class="detail-section float">
+		<div class="ranking-header">Charged Moves</div>
+		<div class="ranking-header right">Usage</div>
+		<div class="moveset charged clear"></div>
+	</div>
+	<div class="detail-section float margin">
+		<div class="ranking-header">Key Matchups</div>
+		<div class="ranking-header right">Battle Rating</div>
+		<div class="matchups clear"></div>
+	</div>
+	<div class="detail-section float">
+		<div class="ranking-header">Top Counters</div>
+		<div class="ranking-header right">Battle Rating</div>
+		<div class="counters clear"></div>
+	</div>
+	<div class="clear"></div>
+	<div class="detail-section stats">
+		<div class="rating-container">
+			<div class="ranking-header">Attack</div>
+			<div class="rating"></div>&nbsp;-
+			<div class="rating"></div>
+		</div>
+		<div class="rating-container">
+			<div class="ranking-header">Defense</div>
+			<div class="rating"></div>&nbsp;-
+			<div class="rating"></div>
+		</div>
+		<div class="rating-container">
+			<div class="ranking-header">Stamina</div>
+			<div class="rating"></div>&nbsp;-
+			<div class="rating"></div>
+		</div>
+	</div>
+	<div class="share-link detail-section"><input type="text" readonly="">
+		<div class="copy">Copy</div>
+	</div>
 </div>
 
 <!--test 2-->

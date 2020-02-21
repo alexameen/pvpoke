@@ -2,7 +2,7 @@
 	{
 		"slot": "Steel",
 		"synergies": ["Grass","Flying"],
-		"weight": 4,
+		"weight": 8,
 		"pokemon": [
 			{
 				"speciesId": "bronzong",
@@ -12,25 +12,32 @@
 				"weight":20
 			},
 			{
+				"speciesId": "empoleon",
+				"fastMove": "WATERFALL",
+				"chargedMoves": ["HYDRO_CANNON","FLASH_CANNON"],
+				"difficulty": 2,
+				"weight":14
+			},
+			{
 				"speciesId": "probopass",
 				"fastMove": "SPARK",
 				"chargedMoves": ["THUNDERBOLT","ROCK_SLIDE"],
 				"difficulty": 2,
-				"weight":5
+				"weight":25
 			},
 			{
 				"speciesId": "probopass",
 				"fastMove": "SPARK",
 				"chargedMoves": ["ROCK_SLIDE","MAGNET_BOMB"],
-				"difficulty": 2,
-				"weight":4
+				"difficulty": 1,
+				"weight":1
 			},
 			{
 				"speciesId": "probopass",
 				"fastMove": "ROCK_THROW",
 				"chargedMoves": ["ROCK_SLIDE","MAGNET_BOMB"],
 				"difficulty": 2,
-				"weight":2
+				"weight":1
 			},
 			{
 				"speciesId": "magneton",
@@ -71,50 +78,50 @@
 	},
 	{
 		"slot": "Ice",
-		"weight": 4,
-		"synergies": ["Mudboi","Fire-Flying"],
+		"weight": 6,
+		"synergies": ["Mudboi"],
 		"pokemon": [
 			{
 				"speciesId": "sandslash_alolan",
 				"fastMove": "POWDER_SNOW",
 				"chargedMoves": ["ICE_PUNCH","BULLDOZE"],
 				"difficulty": 3,
-				"weight":20
+				"weight":15
 			},
 			{
 				"speciesId": "ninetales_alolan",
 				"fastMove": "POWDER_SNOW",
 				"chargedMoves": ["PSYSHOCK","ICE_BEAM"],
 				"difficulty": 2,
-				"weight":6
+				"weight":4
 			},
 			{
 				"speciesId": "froslass",
 				"fastMove": "POWDER_SNOW",
 				"chargedMoves": ["AVALANCHE","SHADOW_BALL"],
 				"difficulty": 2,
-				"weight":12
+				"weight":20
 			},
 			{
-				"speciesId": "cloyster",
-				"fastMove": "ICE_SHARD",
-				"chargedMoves": ["AVALANCHE","ICY_WIND"],
+				"speciesId": "froslass",
+				"fastMove": "POWDER_SNOW",
+				"chargedMoves": ["AVALANCHE","CRUNCH"],
 				"difficulty": 2,
-				"weight":2
+				"weight":4
 			},
 			{
 				"speciesId": "cloyster",
 				"fastMove": "ICE_SHARD",
 				"chargedMoves": ["HYDRO_PUMP","ICY_WIND"],
 				"difficulty": 2,
-				"weight":2
+				"weight":3
 			},
 			{
 				"speciesId": "piloswine",
 				"fastMove": "POWDER_SNOW",
 				"chargedMoves": ["AVALANCHE","STONE_EDGE"],
-				"difficulty": 2,
-				"weight":2
+				"difficulty": 1,
+				"weight":1
 			},
 			{
 				"speciesId": "piloswine",
@@ -125,8 +132,15 @@
 			},
 			{
 				"speciesId": "sealeo",
-				"fastMove": "POWDER_SNOW",
+				"fastMove": "WATER_GUN",
 				"chargedMoves": ["BODY_SLAM","AURORA_BEAM"],
+				"difficulty": 2,
+				"weight":3
+			},
+			{
+				"speciesId": "sealeo",
+				"fastMove": "POWDER_SNOW",
+				"chargedMoves": ["BODY_SLAM","WATER_PULSE"],
 				"difficulty": 2,
 				"weight":1
 			},
@@ -134,6 +148,13 @@
 				"speciesId": "weavile",
 				"fastMove": "SNARL",
 				"chargedMoves": ["AVALANCHE","FOUL_PLAY"],
+				"difficulty": 1,
+				"weight":1
+			},
+			{
+				"speciesId": "mamoswine",
+				"fastMove": "POWDER_SNOW",
+				"chargedMoves": ["AVALANCHE","ANCIENT_POWER"],
 				"difficulty": 1,
 				"weight":1
 			}
@@ -149,42 +170,56 @@
 				"fastMove": "WING_ATTACK",
 				"chargedMoves": ["POISON_FANG","SHADOW_BALL"],
 				"difficulty": 2,
+				"weight":1
+			},
+			{
+				"speciesId": "noctowl",
+				"fastMove": "WING_ATTACK",
+				"chargedMoves": ["SKY_ATTACK","NIGHT_SHADE"],
+				"difficulty": 2,
 				"weight":4
+			},
+			{
+				"speciesId": "altaria",
+				"fastMove": "DRAGON_BREATH",
+				"chargedMoves": ["SKY_ATTACK","DRAGON_PULSE"],
+				"difficulty": 2,
+				"weight":3
 			},
 			{
 				"speciesId": "charizard",
 				"fastMove": "FIRE_SPIN",
 				"chargedMoves": ["DRAGON_CLAW","BLAST_BURN"],
 				"difficulty": 2,
-				"weight":8
+				"weight":6
 			},
 			{
 				"speciesId": "charizard",
 				"fastMove": "AIR_SLASH",
 				"chargedMoves": ["DRAGON_CLAW","BLAST_BURN"],
 				"difficulty": 1,
-				"weight":2
+				"weight":1
 			},
 			{
 				"speciesId": "charizard",
 				"fastMove": "WING_ATTACK",
 				"chargedMoves": ["DRAGON_CLAW","OVERHEAT"],
 				"difficulty": 3,
-				"weight":2
+				"weight":1
 			},
 			{
 				"speciesId": "charizard",
 				"fastMove": "WING_ATTACK",
 				"chargedMoves": ["DRAGON_CLAW","FLAMETHROWER"],
 				"difficulty": 1,
-				"weight":2
+				"weight":1
 			},
 			{
 				"speciesId": "marowak_alolan",
 				"fastMove": "FIRE_SPIN",
 				"chargedMoves": ["BONE_CLUB","SHADOW_BALL"],
-				"difficulty": 2,
-				"weight":20
+				"difficulty": 4,
+				"weight":4
 			},
 			{
 				"speciesId": "blaziken",
@@ -197,8 +232,8 @@
 				"speciesId": "honchkrow",
 				"fastMove": "SNARL",
 				"chargedMoves": ["SKY_ATTACK","DARK_PULSE"],
-				"difficulty": 2,
-				"weight":2
+				"difficulty": 1,
+				"weight":1
 			},
 			{
 				"speciesId": "houndoom",
@@ -232,35 +267,35 @@
 	},
 	{
 		"slot": "Flying",
-		"weight": 12,
-		"synergies": ["Mudboi","Fire-Flying"],
+		"weight": 14,
+		"synergies": ["Mudboi"],
 		"pokemon": [
 			{
 				"speciesId": "altaria",
 				"fastMove": "DRAGON_BREATH",
 				"chargedMoves": ["SKY_ATTACK","DRAGON_PULSE"],
 				"difficulty": 2,
-				"weight":25
+				"weight":20
 			},
 			{
 				"speciesId": "noctowl",
 				"fastMove": "WING_ATTACK",
 				"chargedMoves": ["SKY_ATTACK","PSYCHIC"],
-				"difficulty": 2,
-				"weight":7
+				"difficulty": 1,
+				"weight":3
 			},
 			{
 				"speciesId": "noctowl",
 				"fastMove": "WING_ATTACK",
 				"chargedMoves": ["SKY_ATTACK","NIGHT_SHADE"],
 				"difficulty": 2,
-				"weight":3
+				"weight":24
 			},
 			{
 				"speciesId": "golbat",
 				"fastMove": "WING_ATTACK",
 				"chargedMoves": ["POISON_FANG","SHADOW_BALL"],
-				"difficulty": 2,
+				"difficulty": 1,
 				"weight":1
 			},
 			{
@@ -303,28 +338,28 @@
 	{
 		"slot": "Grass",
 		"synergies": ["Steel"],
-		"weight": 3,
+		"weight": 5,
 		"pokemon": [
 			{
 				"speciesId": "venusaur",
 				"fastMove": "VINE_WHIP",
 				"chargedMoves": ["FRENZY_PLANT","SLUDGE_BOMB"],
 				"difficulty": 3,
-				"weight":8
+				"weight":10
 			},
 			{
 				"speciesId": "victreebel",
 				"fastMove": "RAZOR_LEAF",
 				"chargedMoves": ["LEAF_BLADE","ACID_SPRAY"],
 				"difficulty": 2,
-				"weight":2
+				"weight":1
 			},
 			{
 				"speciesId": "victreebel",
 				"fastMove": "RAZOR_LEAF",
 				"chargedMoves": ["LEAF_BLADE","SLUDGE_BOMB"],
 				"difficulty": 2,
-				"weight":2
+				"weight":1
 			},
 			{
 				"speciesId": "exeggutor",
@@ -366,7 +401,14 @@
 				"fastMove": "SNARL",
 				"chargedMoves": ["LEAF_BLADE","FOUL_PLAY"],
 				"difficulty": 3,
-				"weight":10
+				"weight":8
+			},
+			{
+				"speciesId": "shiftry",
+				"fastMove": "RAZOR_LEAF",
+				"chargedMoves": ["LEAF_BLADE","FOUL_PLAY"],
+				"difficulty": 2,
+				"weight":1
 			},
 			{
 				"speciesId": "breloom",
@@ -393,50 +435,57 @@
 				"speciesId": "cradily",
 				"fastMove": "INFESTATION",
 				"chargedMoves": ["GRASS_KNOT","STONE_EDGE"],
-				"difficulty": 2,
-				"weight":2
+				"difficulty": 1,
+				"weight":1
 			}
 		]
 	},
 	{
 		"slot": "Mudboi",
 		"synergies": ["Flying","Fire-Flying","Ice"],
-		"weight": 6,
+		"weight": 10,
 		"pokemon": [
 			{
 				"speciesId": "whiscash",
 				"fastMove": "MUD_SHOT",
 				"chargedMoves": ["MUD_BOMB","BLIZZARD"],
 				"difficulty": 2,
-				"weight":40
+				"weight":60
+			},
+			{
+				"speciesId": "empoleon",
+				"fastMove": "WATERFALL",
+				"chargedMoves": ["HYDRO_CANNON","FLASH_CANNON"],
+				"difficulty": 2,
+				"weight":13
 			},
 			{
 				"speciesId": "swampert",
 				"fastMove": "MUD_SHOT",
 				"chargedMoves": ["HYDRO_CANNON","EARTHQUAKE"],
 				"difficulty": 3,
-				"weight":4
+				"weight":3
 			},
 			{
 				"speciesId": "swampert",
 				"fastMove": "MUD_SHOT",
 				"chargedMoves": ["HYDRO_CANNON","SLUDGE_WAVE"],
 				"difficulty": 3,
-				"weight":3
+				"weight":15
 			},
 			{
 				"speciesId": "quagsire",
 				"fastMove": "MUD_SHOT",
 				"chargedMoves": ["STONE_EDGE","ACID_SPRAY"],
-				"difficulty": 1,
-				"weight":2
+				"difficulty": 2,
+				"weight":1
 			},
 			{
 				"speciesId": "quagsire",
 				"fastMove": "MUD_SHOT",
 				"chargedMoves": ["STONE_EDGE","EARTHQUAKE"],
 				"difficulty": 2,
-				"weight":3
+				"weight":1
 			},
 			{
 				"speciesId": "claydol",
@@ -470,7 +519,7 @@
 	},
 	{
 		"slot": "Flex",
-		"weight": 1,
+		"weight": 6,
 		"synergies": ["Flying"],
 		"pokemon": [
 			{
@@ -478,14 +527,28 @@
 				"fastMove": "COUNTER",
 				"chargedMoves": ["MUD_BOMB","SLUDGE_BOMB"],
 				"difficulty": 1,
-				"weight":1
+				"weight":2
 			},
 			{
 				"speciesId": "poliwrath",
 				"fastMove": "MUD_SHOT",
 				"chargedMoves": ["DYNAMIC_PUNCH","ICE_PUNCH"],
 				"difficulty": 2,
-				"weight":20
+				"weight":24
+			},
+			{
+				"speciesId": "escavalier",
+				"fastMove": "COUNTER",
+				"chargedMoves": ["DRILL_RUN","AERIAL_ACE"],
+				"difficulty": 1,
+				"weight":2
+			},
+			{
+				"speciesId": "escavalier",
+				"fastMove": "COUNTER",
+				"chargedMoves": ["MEGAHORN","AERIAL_ACE"],
+				"difficulty": 2,
+				"weight":7
 			},
 			{
 				"speciesId": "poliwrath",
@@ -513,7 +576,7 @@
 				"fastMove": "COUNTER",
 				"chargedMoves": ["MEGAHORN","CLOSE_COMBAT"],
 				"difficulty": 2,
-				"weight":6
+				"weight":8
 			},
 			{
 				"speciesId": "infernape",
@@ -533,7 +596,7 @@
 				"speciesId": "haunter",
 				"fastMove": "SHADOW_CLAW",
 				"chargedMoves": ["SHADOW_PUNCH","SHADOW_BALL"],
-				"difficulty": 3,
+				"difficulty": 1,
 				"weight":3
 			},
 			{
@@ -548,20 +611,27 @@
 				"fastMove": "DRAGON_BREATH",
 				"chargedMoves": ["OUTRAGE","OCTAZOOKA"],
 				"difficulty": 2,
-				"weight":4
+				"weight":3
 			},
 			{
 				"speciesId": "lanturn",
 				"fastMove": "WATER_GUN",
 				"chargedMoves": ["THUNDERBOLT","HYDRO_PUMP"],
 				"difficulty": 2,
-				"weight":2
+				"weight":4
+			},
+			{
+				"speciesId": "lanturn",
+				"fastMove": "WATER_GUN",
+				"chargedMoves": ["THUNDERBOLT","HYDRO_PUMP"],
+				"difficulty": 1,
+				"weight":1
 			},
 			{
 				"speciesId": "skuntank",
 				"fastMove": "POISON_JAB",
 				"chargedMoves": ["CRUNCH","FLAMETHROWER"],
-				"difficulty": 2,
+				"difficulty": 1,
 				"weight":1
 			}
 		]
@@ -576,28 +646,28 @@
 				"fastMove": "CHARM",
 				"chargedMoves": ["ANCIENT_POWER","FLAMETHROWER"],
 				"difficulty": 2,
-				"weight":2
+				"weight":1
 			},
 			{
 				"speciesId": "togekiss",
 				"fastMove": "CHARM",
 				"chargedMoves": ["ANCIENT_POWER","AERIAL_ACE"],
 				"difficulty": 2,
-				"weight":4
+				"weight":1
 			},
 			{
 				"speciesId": "wigglytuff",
 				"fastMove": "CHARM",
 				"chargedMoves": ["PLAY_ROUGH","ICE_BEAM"],
 				"difficulty": 2,
-				"weight":10
+				"weight":14
 			},
 			{
 				"speciesId": "ninetales_alolan",
 				"fastMove": "CHARM",
 				"chargedMoves": ["PSYSHOCK","ICE_BEAM"],
 				"difficulty": 2,
-				"weight":4
+				"weight":6
 			},
 			{
 				"speciesId": "ninetales_alolan",
