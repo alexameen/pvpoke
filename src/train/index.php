@@ -40,16 +40,18 @@ require_once '../header.php';
 				<option value="1500 all">Great League</option>
 				<option value="2500 all">Ultra League</option>
 				<option value="10000 all">Master League</option>
-				<option value="1500 voyager">Voyager Cup</option>
-				<option value="1500 toxic">Toxic Cup</option>
+				<option value="10000 premier">Premier Cup</option>
+				<option value="1500 sorcerous">Silph Sorcerous Cup</option>
+				<option value="1500 forest">Silph Forest Cup</option>
 			</select>
 			<h3 class="section-title">Difficulty</h3>
 			<select class="difficulty-select">
 				<option value="0">Novice</option>
 				<option value="1">Rival</option>
 				<option value="2">Elite</option>
-				<option value="3">Champion</option>
+				<option value="3" selected>Champion</option>
 			</select>
+			<div class="check autotap-toggle"><span></span>Autotap</div>
 			<h3 class="section-title">Team Selection</h3>
 			<select class="team-method-select">
 				<option value="random">Random</option>
@@ -84,6 +86,7 @@ require_once '../header.php';
 </div>
 
 <div class="section team-select">
+	<a class="return-to-setup" href="#">&larr; Team Select &amp; Setup</a>
 	<div class="opponent">
 		<h3 class="center">Opponent's Roster</h3>
 		<div class="featured-team-description">
@@ -126,9 +129,14 @@ require_once '../header.php';
 <div class="section white updates">
 	<h3>What's New</h3>
 
-	<h4>v1.14.7 (April 3, 2020)</h4>
+	<h4>v1.14.20 (May 17, 2020)</h4>
 	<ul>
-		<li>Random Voyager teams are now available to fight in Training Battles!</li>
+		<li>Updates to Training Battles:</li>
+		<ul>
+			<li>Tweaked AI switching behavior to favor soft counters over hard counters when it can be counter-switched.</li>
+			<li>The switch window now closes during Charged Moves to prevent overlap with the shield screen.</li>
+			<li>Fixed an issue where Pokemon would be locked into their Fast Move cooldown after fainting an opponent with a Fast Move.</li>
+		</ul>
 	</ul>
 </div>
 

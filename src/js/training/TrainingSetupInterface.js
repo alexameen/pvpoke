@@ -3,7 +3,7 @@
 */
 // Load AI archetypes
 
-var file = webRoot+"data/training/teams/featured/featured-march.json?v=3";
+var file = webRoot+"data/training/teams/featured/featured-april.json?v=1";
 var featuredTeams = [];
 
 $.getJSON( file, function( data ){
@@ -66,6 +66,7 @@ var InterfaceMaster = (function () {
 				$(".featured-team-select").on("change", selectFeaturedTeam);
 				$(".battle-btn").on("click", startBattle);
 				$(".lets-go-btn").on("click", startTournamentBattle);
+				$("a.return-to-setup").on("click", returnToSetup);
 				$("body").on("click", ".self .roster .pokemon", selectRosterPokemon);
 				$("a.random").on("click", randomizeTeam);
 				$("body").on("click", ".check", checkBox);
@@ -213,6 +214,8 @@ var InterfaceMaster = (function () {
 					return false;
 				}
 
+				var autotapOverride = $(".autotap-toggle").hasClass("on");
+
 				// Set the round number to 0 for tournament mode
 				roundNumber = 0;
 
@@ -224,7 +227,8 @@ var InterfaceMaster = (function () {
 					partySize: partySize,
 					league: battle.getCP(),
 					cup: battle.getCup().name,
-					featuredTeam: featuredTeam
+					featuredTeam: featuredTeam,
+					autotapOverride:autotapOverride
 					};
 
 				// Reset roster selection for tournament mode
@@ -452,6 +456,10 @@ var InterfaceMaster = (function () {
 				battle.setCP(cp);
 				battle.setCup(cup);
 
+				for(var i = 0; i < multiSelectors.length; i++){
+					multiSelectors[i].setCP(cp);
+				}
+
 				// Force featured team selection for Cliffhanger and hide randomize button
 				if(cup == "cliffhanger"){
 					$(".team-method-select option[value=\"featured\"]").prop("selected","selected");
@@ -464,7 +472,7 @@ var InterfaceMaster = (function () {
 				}
 
 				// Force 3v3 for GO Battle League
-				if(cup == "gobattleleague"){
+				if((cup == "gobattleleague")||(cup == "premier")){
 					$(".mode-select option[value=\"single\"]").prop("selected","selected");
 					$(".mode-select option[value=\"tournament\"]").prop("disabled","disabled");
 					$(".mode-select").trigger("change");
@@ -488,6 +496,14 @@ var InterfaceMaster = (function () {
 			function checkBox(e){
 				$(this).toggleClass("on");
 				$(this).trigger("change");
+			}
+
+			// Return to the setup screen from the tournament team select screen
+
+			function returnToSetup(e){
+				e.preventDefault();
+
+				handler.returnToSetup();
 			}
 
 		}

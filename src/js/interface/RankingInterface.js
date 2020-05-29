@@ -62,10 +62,16 @@ var InterfaceMaster = (function () {
 
 				// Force 1500 if not general
 
-				if((cup != 'all')&&(cup != 'gen-5')){
+				if((cup != 'all')&&(cup != 'gen-5')&&(cup != "premier")){
 					league = 1500;
 
 					$(".league-select option[value=\"1500\"]").prop("selected","selected");
+				}
+
+				if(cup == "premier"){
+					league = 10000;
+
+					$(".league-select option[value=\"10000\"]").prop("selected","selected");
 				}
 
 				battle.setCP(league);
@@ -141,24 +147,13 @@ var InterfaceMaster = (function () {
 					var arr = r.moveStr.split("-");
 					var move = pokemon.chargedMovePool[arr[1]-1];
 
-					moveNameStr = pokemon.fastMovePool[arr[0]].name;
-					if(pokemon.fastMovePool[arr[0]].legacy){
-						moveNameStr += "*";
-					}
-					moveNameStr += ", " + move.name;
-					if(move.legacy){
-						moveNameStr += "*";
-					}
+					moveNameStr = pokemon.fastMovePool[arr[0]].displayName;
+
+					moveNameStr += ", " + move.displayName;
 
 					if((arr.length > 2)&&(arr[2] != "0")){
 						move = pokemon.chargedMovePool[arr[2]-1];
-						moveNameStr += ", " + move.name;
-
-						if(move.legacy){
-							moveNameStr += "*";
-						}
-
-
+						moveNameStr += ", " + move.displayName;
 					}
 
 					// Is this the best way to add HTML content? I'm gonna go with no here. But does it work? Yes!
@@ -282,6 +277,10 @@ var InterfaceMaster = (function () {
 			this.pushHistoryState = function(cup, cp, category, speciesId){
 				if(context == "custom"){
 					return false;
+				}
+
+				if(cup == "premier"){
+					cp = 10000;
 				}
 
 				var url = webRoot+"rankings/"+cup+"/"+cp+"/"+category+"/";
@@ -526,7 +525,7 @@ var InterfaceMaster = (function () {
 						displayWidth = displayWidth + "%";
 					}
 
-					$details.find(".moveset.fast").append("<div class=\"rank " + fastMoves[n].type + "\"><div class=\"name-container\"><span class=\"number\">#"+(n+1)+"</span><span class=\"name\">"+fastMoves[n].name+(fastMoves[n].legacy === false ? "" : " *")+"</span></div><div class=\"rating-container\"><div class=\"rating\" style=\"width:"+displayWidth+"\">"+percentStr+"</span></div><div class=\"clear\"></div></div>");
+					$details.find(".moveset.fast").append("<div class=\"rank " + fastMoves[n].type + "\"><div class=\"name-container\"><span class=\"number\">#"+(n+1)+"</span><span class=\"name\">"+fastMoves[n].displayName+"</span></div><div class=\"rating-container\"><div class=\"rating\" style=\"width:"+displayWidth+"\">"+percentStr+"</span></div><div class=\"clear\"></div></div>");
 				}
 
 				// Display charged moves
@@ -547,7 +546,7 @@ var InterfaceMaster = (function () {
 						displayWidth = displayWidth + "%";
 					}
 
-					$details.find(".moveset.charged").append("<div class=\"rank " + chargedMoves[n].type + "\"><div class=\"name-container\"><span class=\"number\">#"+(n+1)+"</span><span class=\"name\">"+chargedMoves[n].name+(chargedMoves[n].legacy === false ? "" : " *")+"</span></div><div class=\"rating-container\"><div class=\"rating\" style=\"width:"+displayWidth+"\">"+percentStr+"</span></div><div class=\"clear\"></div></div>");
+					$details.find(".moveset.charged").append("<div class=\"rank " + chargedMoves[n].type + "\"><div class=\"name-container\"><span class=\"number\">#"+(n+1)+"</span><span class=\"name\">"+chargedMoves[n].displayName+"</span></div><div class=\"rating-container\"><div class=\"rating\" style=\"width:"+displayWidth+"\">"+percentStr+"</span></div><div class=\"clear\"></div></div>");
 				}
 
 				// Display moveset override notice where applicable

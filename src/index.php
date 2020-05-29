@@ -27,40 +27,38 @@
 	<!--Update section for updates-->
 	<h3>What's New</h3>
 
-	<h4>v1.14.8 (April 3, 2020)</h4>
+	<h4>v1.15.0 (May 20, 2020)</h4>
 	<ul>
-		<li>Fixed some battle logic issues in the simulations:</li>
+		<li>The Team Builder has been updated with new advanced options:</li>
 		<ul>
-			<li>Pokemon more accurately take into account unregistered Fast Move damage when firing off Charged Moves before fainting.</li>
-			<li>Pokemon more consistently fire stored Charged Moves ahead of Charged Move ties they will lose. This issue resulted in Pokemon sometimes not firing Charged Moves at all, especially while building up self-debuffing moves like Superpower.</li>
-			<li>Fixed an issue where "hooking" couldn't occur on the same turn a Pokemon gained enough energy for a Charged Move. Hooking is when you queue a Charged Move in the middle of your Fast Move, and it fires immediately after your opponent uses a Charged Move during that time (in-game this appears like a "false" Charged Move tie).</li>
+			<li>Custom groups for the Team Builder's threats and alternatives lists. This will allow you to evaluate specific Pokemon or build a custom meta scorecard for your team.</li>
+			<li>Option for the number of threats and alternatives to show.</li>
+			<li>Toggle for Shadow Pokemon in the results.</li>
+			<li>Toggle for shield baiting in the Team Builder's simulations.</li>
 		</ul>
-		<li>Rankings have been updated with the above changes. For the most part these changes don't significantly change matchups but make bad matchups less extreme for certain Pokemon.</li>
+		<li>The Team Builder includes new letter grades for your team to provide general feedback on coverage and composition.</li>
 	</ul>
 
-	<h4>v1.14.7 (April 3, 2020)</h4>
+	<h4>v1.14.19 (May 11, 2020)</h4>
 	<ul>
-		<li>Random Voyager teams are now available to fight in Training Battles!</li>
-	</ul>
-
-	<h4>v1.14.6 (April 2, 2020)</h4>
-	<ul>
-		<li>Simulations and rankings have been updated with the April balance changes including a buff to Bullet Seed and nerfs to Ancient Power, Ominous Wind, and Silver Wind!</li>
+		<li>Simulations, rankings, meta groups, and Training Battles have been updated with the latest move balance updates for Wild Charge, Moonblast, and Drill Run.</li>
+		<li>Premier Cup is now available in Training Battles.</li>
 	</ul>
 
 	<h3>Latest Article</h3>
 
 	<div class="article-item flex">
 		<div class="col-3">
-			<a href="<?php echo $WEB_ROOT; ?>articles/cliffhanger-team-building/">
-				<img src="<?php echo $WEB_ROOT; ?>assets/articles/cliffhanger-thumb.jpg" />
+			<a href="<?php echo $WEB_ROOT; ?>articles/best-elite-tm-candidates-pvp/">
+				<img src="<?php echo $WEB_ROOT; ?>assets/articles/elite-tm-thumb.jpg" />
 			</a>
 		</div>
 		<div class="col-9">
-			<h4><a href="<?php echo $WEB_ROOT; ?>articles/cliffhanger-team-building/">Team Building for GO Stadium Cliffhanger</a></h4>
-			<div class="date"> January 4, 2020</div>
-			<p>GO Stadium has introduced an exciting new format called Cliffhanger! Learn how to spend your points and build your Cliffhanger team from the ground up.</p>
+			<h4><a href="<?php echo $WEB_ROOT; ?>articles/best-elite-tm-candidates-pvp/">Best Elite TM Candidates for PvP</a></h4>
+			<div class="date">April 28, 2020</div>
+			<p>Elite TM's are now available! Which exclusive moves and Pokemon are the best for your PvP team?</p>
 		</div>
+
 	</div>
 
 </div>

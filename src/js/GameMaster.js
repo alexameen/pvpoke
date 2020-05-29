@@ -69,11 +69,21 @@ var GameMaster = (function () {
 							console.log("Removing Return from " + entry.speciesId);
 							entry.legacyMoves.splice(i, 1);
 							i--;
+
+							continue;
 						}
 
-						if(entry.legacyMoves.length == 0){
-							delete entry.legacyMoves;
+						// Remove any elite moves from the legacy move list
+						if(entry.eliteMoves){
+							if(entry.eliteMoves.indexOf(entry.legacyMoves[i]) > -1){
+								entry.legacyMoves.splice(i, 1);
+								i--;
+							}
 						}
+					}
+
+					if(entry.legacyMoves.length == 0){
+						delete entry.legacyMoves;
 					}
 				}
 
@@ -111,19 +121,33 @@ var GameMaster = (function () {
 					entry.tags.splice(entry.tags.indexOf("shadowEligible"), 1);
 					entry.tags.push("shadow");
 
-					// Remove all legacy and exclusive moves
+					// Remove all legacy and exclusive moves that aren't available via Elite TM
 					if(entry.legacyMoves){
 						for(var i = 0; i < entry.fastMoves.length; i++){
+							var remove = true;
 							if(entry.legacyMoves.indexOf(entry.fastMoves[i]) > -1){
-								entry.fastMoves.splice(i, 1);
-								i--;
+								if((entry.eliteMoves)&&(entry.eliteMoves.indexOf(entry.fastMoves[i]) > -1)){
+									remove = false;
+								}
+
+								if(remove){
+									entry.fastMoves.splice(i, 1);
+									i--;
+								}
 							}
 						}
 
 						for(var i = 0; i < entry.chargedMoves.length; i++){
+							var remove = true;
 							if(entry.legacyMoves.indexOf(entry.chargedMoves[i]) > -1){
-								entry.chargedMoves.splice(i, 1);
-								i--;
+								if((entry.eliteMoves)&&(entry.eliteMoves.indexOf(entry.chargedMoves[i]) > -1)){
+									remove = false;
+								}
+
+								if(remove){
+									entry.chargedMoves.splice(i, 1);
+									i--;
+								}
 							}
 						}
 
@@ -169,10 +193,24 @@ var GameMaster = (function () {
 					battle.setCP(leagues[i]);
 
 					var cp = pokemon.calculateCP(.79030001, 15, 15, 15);
+					var level35cp = pokemon.calculateCP(0.76156384, 15, 15, 15);
 
 					if(cp > leagues[i]){
-						var combinations = pokemon.generateIVCombinations("overall", 1, 4096);
-						var defaultIndex = Math.floor(combinations.length * .12207);
+						var floor = 5;
+						var defaultIndex = 63;
+
+						// For Pokemon that max near the league cap, default to lucky IV's
+						if(level35cp < leagues[i]){
+							floor = 12;
+							defaultIndex = 16;
+						}
+
+						var combinations = pokemon.generateIVCombinations("overall", 1, 4096, null, floor);
+
+						// For untradable Pokemon, set the index to the 54th rank
+						if(pokemon.hasTag("untradeable")){
+							defaultIndex = 53;
+						}
 
 						var level = combinations[defaultIndex].level;
 						var ivs = combinations[defaultIndex].ivs;
@@ -217,6 +255,7 @@ var GameMaster = (function () {
 					move = {
 						moveId: m.moveId,
 						name: m.name,
+						displayName: m.name,
 						abbreviation: abbreviation,
 						type: m.type,
 						power: m.power,
@@ -224,8 +263,15 @@ var GameMaster = (function () {
 						energyGain: m.energyGain,
 						cooldown: m.cooldown,
 						selfDebuffing: false,
-						selfAttackDebuffing: false
+						selfAttackDebuffing: false,
+						legacy: false,
+						elite: false
 					};
+
+					if((move.moveId == "RETURN")||(move.moveId == "FRUSTRATION")){
+						move.legacy = true;
+						move.displayName = move.displayName + "<sup>†</sup>";
+					}
 
 					if(m.buffs){
 						move.buffs = m.buffs;
@@ -363,11 +409,11 @@ var GameMaster = (function () {
 				minStats = 2800;
 			}
 
-			var bannedList = ["mewtwo","mewtwo_armored","giratina_altered","groudon","kyogre","rayquaza","palkia","dialga","heatran","giratina_origin","darkrai","cobalion","terrakion","virizion","thundurus_incarnate","regigigas","tornadus_incarnate","landorus_incarnate"];
+			var bannedList = ["mewtwo","mewtwo_armored","giratina_altered","groudon","kyogre","rayquaza","palkia","dialga","heatran","giratina_origin","darkrai","cobalion","terrakion","virizion","thundurus_incarnate","regigigas","tornadus_incarnate","landorus_incarnate", "reshiram", "zekrom"];
 			var permaBannedList = ["rotom","rotom_fan","rotom_frost","rotom_heat","rotom_mow","rotom_wash","phione","manaphy","shaymin_land","shaymin_sky","arceus","arceus_bug","arceus_dark","arceus_dragon","arceus_electric","arceus_fairy","arceus_fighting","arceus_fire","arceus_flying","arceus_ghost","arceus_grass","arceus_ground","arceus_ice","arceus_poison","arceus_psychic","arceus_rock","arceus_steel","arceus_water","kecleon","zigzagoon_galarian","linoone_galarian"]; // Don't rank these Pokemon at all yet
 
 			var maxDexNumber = 493;
-			var releasedGen5 = ["snivy","servine","serperior","tepig","pignite","emboar","oshawott","dewott","samurott","lillipup","herdier","stoutland","purrloin","liepard","pidove","tranquill","unfezant","blitzle","zebstrika","foongus","amoonguss","drilbur","excadrill","litwick","lampent","chandelure","golett","golurk","deino","zweilous","hydreigon","pansage","panpour","pansear","simisage","simipour","simisear","ferroseed","ferrothorn","heatmor","durant","patrat","watchog","klink","klang","klinklang","yamask","cofagrigus","cobalion","terrakion","virizion","cryogonal","cubchoo","beartic","meltan","roggenrola","boldore","gigalith","tympole","palpitoad","seismitoad","dwebble","crustle","trubbish","garbodor","karrablast","escavalier","joltik","galvantula","shelmet","accelgor","timburr","gurdurr","conkeldurr","tirtouga","carracosta","archen","archeops","axew","fraxure","haxorus","throh","sawk","maractus","sigilyph","basculin","venipede","whirlipede","scolipede","minccino","cinccino","darumaka","darmanitan_standard","scraggy","scrafty","woobat","swoobat","tornadus_incarnate","audino","alomomola","thundurus_incarnate","rufflet","braviary","landorus_incarnate","genesect","solosis","duosion","reuniclus","gothita","gothitelle","gothorita","stunfisk","melmetal"];
+			var releasedGen5 = ["snivy","servine","serperior","tepig","pignite","emboar","oshawott","dewott","samurott","lillipup","herdier","stoutland","purrloin","liepard","pidove","tranquill","unfezant","blitzle","zebstrika","foongus","amoonguss","drilbur","excadrill","litwick","lampent","chandelure","golett","golurk","deino","zweilous","hydreigon","pansage","panpour","pansear","simisage","simipour","simisear","ferroseed","ferrothorn","heatmor","durant","patrat","watchog","klink","klang","klinklang","yamask","cofagrigus","cobalion","terrakion","virizion","cryogonal","cubchoo","beartic","meltan","roggenrola","boldore","gigalith","tympole","palpitoad","seismitoad","dwebble","crustle","trubbish","garbodor","karrablast","escavalier","joltik","galvantula","shelmet","accelgor","timburr","gurdurr","conkeldurr","tirtouga","carracosta","archen","archeops","axew","fraxure","haxorus","throh","sawk","maractus","sigilyph","basculin","venipede","whirlipede","scolipede","minccino","cinccino","darumaka","darmanitan_standard","scraggy","scrafty","woobat","swoobat","tornadus_incarnate","audino","alomomola","thundurus_incarnate","rufflet","braviary","landorus_incarnate","genesect","solosis","duosion","reuniclus","gothita","gothitelle","gothorita","stunfisk","reshiram","zekrom","melmetal"];
 
 			// Aggregate filters
 
@@ -548,7 +594,7 @@ var GameMaster = (function () {
 							// legacy move search
 							if ((param == "legacy")||(param == "special")) {
 								for(var k = 0; k < pokemon.fastMovePool.length; k++){
-									if(pokemon.fastMovePool[k].legacy === true){
+									if((pokemon.fastMovePool[k].legacy == true)||(pokemon.fastMovePool[k].elite == true)){
 										valid = true;
 									} else if(param == "special") {
 										if ((pokemon.fastMovePool[k].moveId == "FRUSTRATION")||(pokemon.fastMovePool[k].moveId === "RETURN")) {
@@ -558,7 +604,7 @@ var GameMaster = (function () {
 								}
 
 								for(var k = 0; k < pokemon.chargedMovePool.length; k++){
-									if(pokemon.chargedMovePool[k].legacy === true){
+									if((pokemon.chargedMovePool[k].legacy == true)||(pokemon.chargedMovePool[k].elite == true)){
 										valid = true;
 									} else if(param == "special") {
 										if ((pokemon.chargedMovePool[k].moveId == "FRUSTRATION")||(pokemon.chargedMovePool[k].moveId === "RETURN")) {
