@@ -121,6 +121,10 @@ switch($cup){
 	case "sorcerous":
 		$league = 'Sorcerous Cup';
 		break;
+
+	case "goteamup":
+		$league = 'GOTeamUp';
+		break;
 }
 
 $META_TITLE = $league . ' PvP Rankings';
@@ -318,6 +322,10 @@ require_once 'header.php';
 		<div class="rating-container">
 			<div class="ranking-header">Stamina</div>
 			<div class="rating"></div>&nbsp;-
+			<div class="rating"></div>
+		</div>
+		<div class="rating-container">
+			<div class="ranking-header">Rank 1 Level &amp; IVs</div>
 			<div class="rating"></div>
 		</div>
 	</div>
